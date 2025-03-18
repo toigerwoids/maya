@@ -128,84 +128,168 @@ header.scrolled {
         }
 
 .hero {
-    max-width: 1160px; /* Keep it centered */
     width: 100%;
-    height: 90vh; /* Slightly reduce height for breathing space */
-    margin: 50px auto; /* Adds space above and below */
-    padding: 60px;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 80px 200px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: linear-gradient(135deg, #A0E9FF, #7BCBFF); /* Soft blue */
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    left: 0;
+    right: 0;
+    max-width: 100% !important;
+    border-radius: 0;
+    box-shadow: none;
+    box-sizing: border-box;
+    overflow: hidden;
+    background: transparent; /* Make the hero background transparent */
 }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background: url('/api/placeholder/1500/800') center/cover;
-            opacity: 0.05;
-            z-index: 0;
-        }
-        
-        .hero-content {
-            max-width: 50%;
-            z-index: 1;
-        }
-        
-        .hero h1 {
-            font-size: 72px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            line-height: 1.1;
-            color: #222;
-        }
-        
-        .hero h1 .highlight {
-            color: #ff84d9;
-        }
-        
-        .hero p {
-            font-size: 24px;
-            margin-bottom: 30px;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            padding: 15px 40px;
-            background: linear-gradient(90deg, #ff84d9, #36eee0);
-            color: white;
-            font-weight: 600;
-            font-size: 18px;
-            border-radius: 50px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(255, 132, 217, 0.3);
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 132, 217, 0.4);
-        }
-        
-        .hero-image {
-            width: 45%;
-            max-width: 400px; /* Set a max width */
-            z-index: 1;
-        }
-        
-        .hero-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 50%;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
+
+/* Background image with transparency */
+.hero::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: url('https://i.ibb.co/fddQWZSf/Untitled-design-2025-03-18-T235813-155.png') center/cover;
+    opacity: 0.15;
+    z-index: 0;
+}
+
+/* Gradient overlay on top of the background image */
+.hero::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(135deg, rgba(160, 233, 255, 0.3), rgba(123, 203, 255, 0.3));
+    z-index: 0;
+}
+
+/* Hero content */
+.hero-content {
+    max-width: 600px;
+    padding-right: 20px;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 72px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    color: #222;
+}
+
+.hero h1 .highlight {
+    color: #ff84d9;
+}
+
+.hero p {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+/* Hero image */
+.hero-image {
+    width: 80%;
+    max-width: 400px;
+    z-index: 1;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* CTA button styling */
+.cta-button {
+    display: inline-block;
+    padding: 15px 40px;
+    background: linear-gradient(90deg, #ff84d9, #36eee0);
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+    border-radius: 50px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 132, 217, 0.3);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 132, 217, 0.4);
+}
+
+/* Media queries for responsive design */
+@media (max-width: 992px) {
+    .hero {
+        padding: 60px 40px;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-content {
+        max-width: 100%;
+        margin-bottom: 40px;
+        padding-right: 0;
+    }
+    
+    .hero-image {
+        width: 70%;
+    }
+    
+    .hero h1 {
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 20px 30px;
+    }
+    
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        padding: 100px 30px 60px;
+    }
+    
+    .hero h1 {
+        font-size: 48px;
+    }
+    
+    .hero p {
+        font-size: 20px;
+    }
+    
+    .hero-image {
+        width: 80%;
+    }
+    
+    nav {
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 36px;
+    }
+    
+    .cta-button {
+        width: 100%;
+        text-align: center;
+    }
+}
         
         /* Section Styling */
         section {
