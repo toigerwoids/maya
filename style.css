@@ -1,0 +1,133 @@
+[data-scroll-animation] {
+    opacity: 0;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+    will-change: transform, opacity;
+}
+
+/* Fade In Animation */
+.animate-fade-in {
+    opacity: 1;
+}
+
+/* Slide Up Animation */
+[data-scroll-animation="slide-up"] {
+    transform: translateY(50px);
+}
+.animate-slide-up {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Slide Right Animation (from left to right) */
+[data-scroll-animation="slide-right"] {
+    transform: translateX(-50px);
+}
+.animate-slide-right {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Slide Left Animation (from right to left) */
+[data-scroll-animation="slide-left"] {
+    transform: translateX(50px);
+}
+.animate-slide-left {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Zoom In Animation */
+[data-scroll-animation="zoom-in"] {
+    transform: scale(0.8);
+}
+.animate-zoom-in {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Flip Animation */
+[data-scroll-animation="flip"] {
+    transform: perspective(800px) rotateY(25deg);
+}
+.animate-flip {
+    opacity: 1;
+    transform: perspective(800px) rotateY(0);
+}
+
+/* Animation duration variations */
+[data-animation-duration="fast"] {
+    transition-duration: 0.5s;
+}
+[data-animation-duration="slow"] {
+    transition-duration: 1.2s;
+}
+
+/* Custom animation for hero section */
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #A0E9FF, #7BCBFF);
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 1s ease-in-out;
+    z-index: 0;
+}
+
+.hero.animate-hero::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Custom animation for the phase cards */
+.phase-card {
+    transition: transform 0.5s ease, box-shadow 0.5s ease, opacity 0.8s ease;
+}
+
+/* Animation for stats counters */
+.stat .number {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.stat .number.animate-count {
+    animation: countUp 2s forwards;
+}
+
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Make sure animations don't run on page load for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    [data-scroll-animation] {
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+    
+    .hero::after {
+        transition: none !important;
+        transform: none !important;
+    }
+    
+    .stat .number {
+        animation: none !important;
+    }
+}
