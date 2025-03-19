@@ -2,11 +2,8 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Maya on Solana</title>
-  <link rel="icon" href="https://i.ibb.co/5gZ3RNqY/Round-image.png" type="image/png">
+  <title>Untitled</title>
   <link rel="stylesheet" href="./style.css">
-</head>
-<body>
 
 </head>
 <body>
@@ -42,90 +39,254 @@
             color: inherit;
         }
         
-        /* Header */
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 50px;
+    padding: 15px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.9); /* Transparent white */
-    backdrop-filter: blur(10px); /* Blur effect */
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
     transition: background 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
 }
 
 /* When scrolling down */
 header.scrolled {
-    background: rgba(255, 255, 255, 0.95); /* Solid white */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            font-size: 24px;
-            font-weight: 700;
-        }
-        
-        .logo img {
-            width: 50px;
-            margin-right: 10px;
-            border-radius: 50%;
-        }
-        
-        .logo span {
-            background: linear-gradient(90deg, #36eee0, #ff84d9);
-            -webkit-background-clip: text;
-            color: transparent;
-            font-weight: bold;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 30px;
-            font-weight: 600;
-            position: relative;
-        }
-        
-        nav ul li:hover::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 3px;
-            bottom: -5px;
-            left: 0;
-            background: linear-gradient(90deg, #36eee0, #ff84d9);
-        }
-        
-        .social-icons {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .social-icons a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            background: linear-gradient(145deg, #ff84d9, #36eee0);
-            color: white;
-            font-weight: bold;
-            transition: transform 0.3s;
-        }
-        
-        .social-icons a:hover {
-            transform: scale(1.1);
-        }
+
+/* Better organize header items for mobile */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.left-header {
+    display: flex;
+    align-items: center;
+}
+
+.right-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Push content to the right */
+    gap: 15px;
+    margin-left: auto;
+}
+
+/* Navigation styling */
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: center; /* Center the nav items */
+}
+.center-header {
+    display: flex;
+    justify-content: center;
+    flex: 2;
+}      
+
+nav ul li {
+    margin: 0 15px; /* Equal margin on both sides */
+    font-weight: 600;
+    position: relative;
+}
+
+nav ul li:hover::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: -5px;
+    left: 0;
+    background: linear-gradient(90deg, #36eee0, #ff84d9);
+}
+
+/* Social icons container */
+.social-icons {
+    display: flex;
+    gap: 10px; /* Reduced from 15px for better fit on mobile */
+    margin-left: 20px; /* Add space between nav and social icons */
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #ff84d9, #36eee0);
+    color: white;
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+
+.social-icons a:hover {
+    transform: scale(1.1);
+}
+
+/* Mobile menu button - shows on small screens */
+.mobile-menu-button {
+    display: none;
+    background: linear-gradient(145deg, #ff84d9, #36eee0);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+/* Media queries for responsive design */
+@media (max-width: 992px) {
+    header {
+        padding: 15px 30px;
+    }
+    
+    nav ul li {
+        margin-left: 20px; /* Reduce spacing between nav items */
+    }
+    
+.social-icons {
+    flex-wrap: nowrap; /* Prevent wrapping on small screens */
+    flex-shrink: 0; /* Prevent shrinking */
+}
+    
+    .social-icons a {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Hide desktop nav */
+    nav {
+        display: none;
+    }
+    
+    /* Keep social icons visible but reduce size */
+    .social-icons a {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+    
+    /* Show mobile menu button */
+    .mobile-menu-button {
+        display: flex;
+        margin-right: 16px;
+    }
+    
+    /* Organize header for mobile */
+    .left-header {
+        display: flex;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .social-icons a {
+        width: 32px; /* Slightly larger than current 28px */
+        height: 32px;
+        font-size: 14px; /* Larger icon size */
+    }
+    
+    .social-icons {
+        gap: 8px; /* Increased from 5px for better spacing */
+        margin-left: 10px; /* Reduced margin on small screens */
+    }
+    
+    /* Adjust mobile menu button */
+    .mobile-menu-button {
+        margin-right: 5px;
+    }
+}
+@media (min-width: 1400px) {
+    section {
+        max-width: 1280px; /* Increased from 1160px */
+    }
+    
+    .social-stats, 
+    .phases,
+    .token-info,
+    .highlights {
+        max-width: 1100px; /* Increased content area for large screens */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    /* Increase hero content width */
+    .hero-content {
+        max-width: 700px; /* Increased from 650px */
+    }
+}     
+
+/* Optional: Mobile navigation overlay */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    z-index: 2000;
+    padding: 80px 30px 30px;
+    box-sizing: border-box;
+}
+
+.mobile-nav.active {
+    display: block;
+}
+
+.mobile-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-nav ul li {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.mobile-nav ul li a {
+    font-size: 24px;
+    font-weight: 600;
+    color: #222;
+}
+
+.mobile-nav-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(145deg, #ff84d9, #36eee0);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .hero {
     width: 100%;
@@ -173,16 +334,16 @@ header.scrolled {
 
 /* Hero content */
 .hero-content {
-    max-width: 600px;
-    padding-right: 20px;
+    max-width: 650px; /* Increased from 600px */
+    padding-right: 25px; /* Increased from 20px */
     z-index: 1;
 }
 
 .hero h1 {
-    font-size: 72px;
+    font-size: 90px; /* Increased from 72px */
     font-weight: 700;
-    margin-bottom: 20px;
-    line-height: 1.1;
+    margin-bottom: 25px; /* Increased from 20px */
+    line-height: 1.0; /* Tightened from 1.1 */
     color: #222;
 }
 
@@ -191,14 +352,15 @@ header.scrolled {
 }
 
 .hero p {
-    font-size: 24px;
-    margin-bottom: 30px;
+    font-size: 30px; /* Increased from 24px */
+    margin-bottom: 35px; /* Increased from 30px */
+      text-align: left;
 }
 
 /* Hero image */
 .hero-image {
-    width: 80%;
-    max-width: 400px;
+    width: 90%; /* Increased from 80% */
+    max-width: 450px; /* Increased from 400px */
     z-index: 1;
 }
 
@@ -212,11 +374,11 @@ header.scrolled {
 /* CTA button styling */
 .cta-button {
     display: inline-block;
-    padding: 15px 40px;
+    padding: 18px 45px; /* Increased from 15px 40px */
     background: linear-gradient(90deg, #ff84d9, #36eee0);
     color: white;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 20px; /* Increased from 18px */
     border-radius: 50px;
     transition: transform 0.3s, box-shadow 0.3s;
     border: none;
@@ -229,12 +391,57 @@ header.scrolled {
     box-shadow: 0 8px 25px rgba(255, 132, 217, 0.4);
 }
 
-/* Media queries for responsive design */
+/* Logo styling */
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 32px; /* Increased from 24px */
+    font-weight: 700;
+}
+
+.logo img {
+    width: 65px; /* Increased from 50px */
+    margin-right: 15px; /* Increased from 10px */
+    border-radius: 50%;
+}
+
+/* Add padding-top to body to account for fixed header */
+body {
+    padding-top: 80px; /* Should match header height */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1400px) {
+    .hero {
+        padding: 120px 120px 80px; /* Reduce side padding on large screens */
+    }
+    
+    .hero h1 {
+        font-size: 80px; /* Slightly smaller heading */
+    }
+}
+
+@media (max-width: 1200px) {
+    .hero {
+        padding: 100px 80px 60px; /* Further reduce padding */
+    }
+    
+    .hero h1 {
+        font-size: 70px;
+    }
+    
+    .hero-content {
+        max-width: 550px;
+    }
+}
+
 @media (max-width: 992px) {
     .hero {
-        padding: 60px 40px;
+        padding: 100px 60px 60px;
         flex-direction: column;
         text-align: center;
+        min-height: 100vh; /* Ensure full height on tablets */
+        height: auto; /* Allow expansion if needed */
     }
     
     .hero-content {
@@ -244,51 +451,80 @@ header.scrolled {
     }
     
     .hero-image {
-        width: 70%;
+        width: 60%; /* Slightly reduced */
+        max-width: 350px;
     }
     
     .hero h1 {
         font-size: 60px;
     }
+    
+    .hero p {
+        font-size: 24px;
+    }
 }
 
 @media (max-width: 768px) {
-    header {
-        padding: 20px 30px;
+    body {
+        padding-top: 70px; /* Smaller header on mobile */
     }
     
     .hero {
-        height: auto;
-        min-height: 100vh;
-        padding: 100px 30px 60px;
+        min-height: calc(100vh - 70px); /* Account for header */
+        padding: 90px 30px 50px;
     }
     
     .hero h1 {
-        font-size: 48px;
+        font-size: 50px;
     }
     
     .hero p {
-        font-size: 20px;
+        font-size: 22px;
     }
     
     .hero-image {
-        width: 80%;
-    }
-    
-    nav {
-        display: none;
+        width: 70%;
+        max-width: 300px;
     }
 }
 
 @media (max-width: 576px) {
+    .hero {
+        padding: 80px 20px 40px;
+    }
+    
     .hero h1 {
-        font-size: 36px;
+        font-size: 40px;
+    }
+    
+    .hero p {
+        font-size: 20px;
+        margin-bottom: 25px;
     }
     
     .cta-button {
         width: 100%;
-        text-align: center;
+        padding: 14px 30px;
+        font-size: 18px;
     }
+}
+
+/* Fix for very small screens */
+@media (max-width: 400px) {
+    .hero h1 {
+        font-size: 36px;
+    }
+    
+    .hero p {
+        font-size: 18px;
+    }
+}
+
+/* Add clearfix to header if needed */
+header::after {
+    content: "";
+    display: table;
+    clear: both;
 }
         
         /* Section Styling */
@@ -337,7 +573,7 @@ header.scrolled {
         
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 30px;
             position: relative;
         }
         
@@ -382,6 +618,8 @@ header.scrolled {
     font-size: 18px;
     margin-bottom: 30px;
     line-height: 1.7;
+    text-align: left;
+
 }
 
 /* Story Image */
@@ -402,22 +640,44 @@ header.scrolled {
     transition: transform 0.5s;
 }
         
-        /* Highlights */
-        .highlights {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        
-        .highlight-card {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            transition: transform 0.3s;
-            border-top: 5px solid;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-        }
+.highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+/* Add this media query to handle desktop layout specially */
+@media (min-width: 1200px) {
+    .highlights {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(300px, 1fr));
+        gap: 30px;
+        max-width: 900px;
+        margin: 50px auto 0;
+    }
+}
+
+/* Add this for medium size screens */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .highlights {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(300px, 1fr));
+        gap: 30px;
+        max-width: 800px;
+        margin: 50px auto 0;
+    }
+}
+
+/* Optional: Add a slight animation effect on hover */
+.highlight-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-top: 5px solid;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
         
         .highlight-card:nth-child(1) {
             border-color: #36eee0;
@@ -430,6 +690,9 @@ header.scrolled {
         .highlight-card:nth-child(3) {
             border-color: #43c1ff;
         }
+        .highlight-card:nth-child(4) {
+            border-color: #c4f390;
+        }
         
         .highlight-card:hover {
             transform: translateY(-10px);
@@ -440,6 +703,7 @@ header.scrolled {
             font-size: 24px;
             margin-bottom: 15px;
             color: #222;
+              text-align: center;
         }
         
         .highlight-card p {
@@ -572,6 +836,7 @@ header.scrolled {
             font-size: 24px;
             margin-bottom: 5px;
             color: #222;
+            text-align: center;          
         }
         
         .social-platform .handle {
@@ -616,12 +881,18 @@ header.scrolled {
             border-radius: 50px;
             transition: transform 0.3s, box-shadow 0.3s;
             margin-top: 20px;
+            text-align: center; 
         }
         
         .follow-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
         }
+      .social-platform .follow-button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
         
         /* Social Highlights */
 /* Social Highlights Container updated styles */
@@ -844,39 +1115,146 @@ header.scrolled {
             margin: 0 auto 50px;
             font-size: 18px;
         }
+      section p {
+    max-width: 800px;
+    margin: 0 auto 50px;
+    font-size: 18px;
+    line-height: 1.7;
+    text-align: center;
+    color: #444;
+}
+
+/* Specific styling for social-section to match journey-section */
+.social-section p,
+.journey-section p {
+    max-width: 800px;
+    margin: 0 auto 50px;
+    font-size: 18px;
+    line-height: 1.7;
+    text-align: center;
+    color: #444;
+}
         
-        .phases {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-        }
-        
-        .phase-card {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            width: 280px;
-            transition: transform 0.3s;
-            position: relative;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-        }
+/* Update the phases container to use a grid layout similar to highlights */
+.phases {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    max-width: 100%;
+}
+
+/* Add this media query to handle desktop layout specially for phases */
+@media (min-width: 1200px) {
+    .phases {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(280px, 1fr));
+        gap: 30px;
+        max-width: 900px;
+        margin: 50px auto 0;
+    }
+}
+/* Replace the centering rule for the 4th card with this */
+@media (min-width: 1200px) {
+    .phases {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(280px, 1fr));
+        gap: 30px;
+        max-width: 900px;
+        margin: 50px auto 0;
+    }
+    
+    /* Remove the centering for the 4th card */
+    .phases .phase-card:nth-child(4):last-child {
+        grid-column: auto; /* Reset any grid-column positioning */
+        max-width: none; /* Reset max-width */
+        margin-left: 0; /* Reset margin */
+        margin-right: 0; /* Reset margin */
+    }
+}
+
+/* Make sure all cards have the same height and structure */
+.phase-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    transition: transform 0.3s;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    width: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Make all the status tags the same width */
+.phase-status {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    z-index: 1;
+    min-width: 180px;
+    text-align: center;
+}
+
+/* Ensure the content pushes phase-items to the bottom */
+.phase-card > p {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 20px;
+    height: auto;
+    min-height: 40px; /* Ensure consistent height */
+    flex-grow: 0; /* Don't let it grow */
+}
+.phase-card h3 {
+    font-size: 22px;
+    margin: 25px 0 15px;
+    color: #222;
+    height: auto;
+    min-height: 30px; /* Ensure consistent height */
+}      
+
+.phase-items {
+    margin-top: 0; /* Remove auto margin */
+    padding-left: 0;
+    list-style: none;
+}
+
+.phase-items li {
+    margin-bottom: 12px;
+    padding-left: 25px;
+    position: relative;
+    font-size: 15px;
+    color: #444;
+}
+
+/* Make sure all cards have consistent bullet points */
+.phase-items li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #ff84d9;
+    font-size: 24px;
+    line-height: 1;
+    margin-top: -3px; /* Adjust bullet vertical alignment */
+}
+
+/* Ensure consistent bullet point color and alignment */
+.phase-card li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    text-align: left;
+}
         
         .phase-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .phase-status {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-size: 14px;
-            font-weight: 600;
-            z-index: 1;
         }
         
         .phase-completed {
@@ -909,19 +1287,6 @@ header.scrolled {
             font-size: 15px;
             color: #666;
             margin-bottom: 20px;
-        }
-        
-        .phase-items {
-            text-align: left;
-            list-style: none;
-        }
-        
-        .phase-items li {
-            margin-bottom: 12px;
-            padding-left: 25px;
-            position: relative;
-            font-size: 15px;
-            color: #444;
         }
         
         .phase-items li::before {
@@ -1027,6 +1392,17 @@ header.scrolled {
             padding: 15px;
             border-radius: 10px;
         }
+        .why-heading {
+    text-align: center;
+    margin: 50px 0 30px;
+    font-size: 48px;
+    font-weight: 700;
+    color: #222;
+}
+
+.why-heading .highlight {
+    color: #ff84d9;
+}
         
         .metric-label {
             font-size: 16px;
@@ -1292,6 +1668,7 @@ header.scrolled {
             .hero-content {
                 max-width: 100%;
                 margin-bottom: 40px;
+                text-align: left;
             }
             
             .hero-image {
@@ -1330,6 +1707,7 @@ header.scrolled {
             
             .hero p {
                 font-size: 20px;
+                  text-align: left;
             }
             
             .section-title h2 {
@@ -1371,28 +1749,57 @@ header.scrolled {
     </style>
 </head>
 <body>
-    <header>
-        <a href="#" class="logo">
-            <img src="https://i.ibb.co/nM9gbqnN/LOGO.gif" alt="Maya Logo">
-            <span>$MAYA</span>
-        </a>
+<header>
+    <div class="header-container">
+        <!-- Left section - Logo -->
+        <div class="left-header">
+            <a href="#" class="logo">
+                <img src="https://i.ibb.co/nM9gbqnN/LOGO.gif" alt="Maya Logo">
+                <span>$MAYA</span>
+            </a>
+        </div>
         
-        <nav>
-            <ul>
-                <li><a href="#about">ABOUT</a></li>
-                <li><a href="#social">SOCIAL</a></li>
-                <li><a href="#roadmap">ROADMAP</a></li>
-                <li><a href="#token">BUY</a></li>
-            </ul>
-        </nav>
+        <!-- Center section - Navigation -->
+        <div class="center-header">
+            <nav>
+                <ul>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#social">SOCIAL</a></li>
+                    <li><a href="#roadmap">ROADMAP</a></li>
+                    <li><a href="#token">BUY</a></li>
+                </ul>
+            </nav>
+        </div>
         
-<div class="social-icons">
-    <a href="https://x.com/MayaCoin_" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-    <a href="https://t.me/MayaTheBear" target="_blank"><i class="fab fa-telegram"></i></a>
-    <a href="https://instagram.com/mayapolarbear" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://tiktok.com/@mayapolarbear" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <!-- Right section - Social icons and mobile menu -->
+        <div class="right-header">
+            <button class="mobile-menu-button" id="mobileMenuOpen">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="social-icons">
+                <a href="https://x.com/Maya_TheBear" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://t.me/MayaTheBear" target="_blank"><i class="fab fa-telegram"></i></a>
+                <a href="https://instagram.com/mayapolarbear" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://tiktok.com/@mayapolarbear" target="_blank"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Optional: Mobile Navigation Overlay -->
+<div class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav-close" id="mobileMenuClose">
+        <i class="fas fa-times"></i>
+    </button>
+    
+    <ul>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#social">SOCIAL</a></li>
+        <li><a href="#roadmap">ROADMAP</a></li>
+        <li><a href="#token">BUY</a></li>
+    </ul>
 </div>
-    </header>
     
     <section class="hero">
         <div class="hero-content">
@@ -1413,28 +1820,35 @@ header.scrolled {
         
         <div class="story">
             <div class="story-content">
-                <p>Maya is one of the most famous pups on social media, with millions of followers on Instagram and TikTok. $MAYA transforms this lovable, goofy star's popularity into a fun, community-driven cryptocoin on Solana.</p>
+                <p>Maya is one of the most famous pups on social media, with over 10 million followers across Youtube, Instagram and TikTok. $MAYA brings this lovable, goofy star's popularity to the Solana blockchain.</p>
             </div>
             
             <div class="story-image">
                 <img src="https://i.ibb.co/WNwWnjdZ/9272d9959a67e0f3ac584012ebd37b30.jpg" alt="Maya the Dog">
             </div>
         </div>
-        
+      
+ <h2 class="why-heading">WHY <span class="highlight">$MAYA</span>?</h2>
+       
         <div class="highlights">
             <div class="highlight-card">
                 <h3>Solid Plan</h3>
-                <p>Clear roadmap with key tasks on how to make $MAYA the most famous coin on the Solana blockchain.</p>
+                <p>We have a clear roadmap with key tasks on how to make $MAYA the most viral coin on the Solana blockchain.</p>
             </div>
             
             <div class="highlight-card">
                 <h3>Experienced Team</h3>
-                <p>Proven developers and crypto enthusiasts with multiple successful projects behind them.</p>
+                <p>We are a team of proven developers and crypto enthusiasts and have multiple successful projects behind us.</p>
             </div>
             
             <div class="highlight-card">
                 <h3>Fair Launch</h3>
-                <p>Transparent and equitable token distribution to ensure broad community participation.</p>
+                <p>Transparent and equitable token distribution on Pump.fun to ensure broad community participation.</p>
+            </div>
+          
+                      <div class="highlight-card">
+                <h3>Charitable Vision</h3>
+                <p>Our future vision is to begin charitable activities to support animal welfare organisations and campaigns.</p>
             </div>
         </div>
     </section>
@@ -1699,15 +2113,15 @@ header.scrolled {
         <div class="phases">
             <div class="phase-card">
                 <div class="phase-status phase-completed">Phase 1 - Completed</div>
-                <h3>LAUNCH & COMMUNITY BUILDING</h3>
-                <p>Launch $MAYA on Pump.fun to ensure fair and equitable access for everyone.</p>
+                <h3>LAUNCH</h3>
+                <p>Launch $MAYA into the Solana blockchain via Pump.fun to ensure fair access for all.</p>
                 
                 <ul class="phase-items">
                     <li>Token creation and distribution</li>
                     <li>Set aside a wallet for Maya and Maya's mum</li>
                     <li>Social media channel setup</li>
-                    <li>Community building initiatives</li>
-                    <li>CoinGecko listing</li>
+                    <li>Pay for Dexscreener</li>
+                    <li>Website launch</li>
                 </ul>
             </div>
             
@@ -1718,38 +2132,33 @@ header.scrolled {
                 
                 <ul class="phase-items">
                     <li>Meet our new community in Telegram</li>
-                    <li>Website launch</li>
                     <li>Marketing campaigns featuring Maya's content</li>
-                    <li>Community events and giveaways</li>
-                    <li>Pay for Dexscreener</li>
+                    <li>Get listed on CoinGecko</li>
                 </ul>
             </div>
             
             <div class="phase-card">
                 <div class="phase-status phase-upcoming">Phase 3 - Upcoming</div>
                 <h3>MARKETING</h3>
-                <p>Expand our reach and bring more people into the $MAYA community.</p>
-                
+                <p>Expand our reach even more.</p>
                 <ul class="phase-items">
                     <li>List on major exchanges</li>
-                    <li>Collaborate with influencers</li>
-                    <li>Partnership with pet content creators</li>
-                    <li>Community contests and events</li>
-                    <li>Merchandise featuring Maya's image</li>
+                    <li>Seek collaborations with influencers</li>
+                    <li>Seek collaborations with other viral pets so $MAYA can make more friends</li>
                 </ul>
             </div>
             
             <div class="phase-card">
-                <div class="phase-status phase-future">Phase 4 - Future</div>
+                <div class="phase-status phase-future">Phase 4 - Future Vision</div>
                 <h3>EXPANSION</h3>
                 <p>Expand our team and develop the next steps for marketing and $MAYA expansion.</p>
                 
                 <ul class="phase-items">
-                    <li>Expanding the development team</li>
-                    <li>New feature development</li>
+                    <li>Expanding the team</li>
                     <li>Additional exchange listings</li>
                     <li>Global community expansion</li>
-                    <li>New marketing partnerships</li>
+                    <li>Seek new marketing partnerships</li>
+                  <li>Begin charitable activities</li>
                 </ul>
             </div>
         </div>
@@ -1839,7 +2248,7 @@ header.scrolled {
                 </p>
                 
 <div class="social-icons">
-    <a href="https://x.com/MayaCoin_" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+    <a href="https://x.com/Maya_TheBear" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
     <a href="https://t.me/MayaTheBear" target="_blank"><i class="fab fa-telegram"></i></a>
     <a href="https://instagram.com/mayapolarbear" target="_blank"><i class="fab fa-instagram"></i></a>
     <a href="https://tiktok.com/@mayapolarbear" target="_blank"><i class="fab fa-tiktok"></i></a>
@@ -1922,10 +2331,39 @@ header.scrolled {
                 });
             }
         });
+      
     </script>
       <script async src="//www.instagram.com/embed.js"></script>
 <script async src="https://www.tiktok.com/embed.js"></script>
 </body>
+<script>
+    // Mobile menu functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuOpen = document.getElementById('mobileMenuOpen');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        const mobileNav = document.getElementById('mobileNav');
+        
+        if (mobileMenuOpen) {
+            mobileMenuOpen.addEventListener('click', function() {
+                mobileNav.classList.add('active');
+            });
+        }
+        
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', function() {
+                mobileNav.classList.remove('active');
+            });
+        }
+        
+        // Close mobile menu when clicking menu items
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav ul li a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileNav.classList.remove('active');
+            });
+        });
+    });
+</script>
 </html>
 <!-- partial -->
   <script  src="./script.js"></script>
