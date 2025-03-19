@@ -873,10 +873,36 @@ header::after {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
-/* Icons in buttons */
 .button-grid a i {
     margin-right: 10px;
-    font-size: 20px; /* Slightly larger icons */
+    font-size: 22px; /* Unified icon size */
+    width: 22px; /* Fixed width */
+    height: 22px; /* Fixed height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* X icon might need a slight adjustment to match visually */
+.follow-x-button i {
+    font-size: 20px; /* Slightly smaller to match visual weight */
+    position: relative;
+    top: 1px; /* Small adjustment to align better with text */
+}
+
+/* Telegram icon adjustment */
+.cta-button i {
+    position: relative;
+    top: -1px; /* Small adjustment to align better */
+}
+
+/* Ensure consistent vertical alignment */
+.button-grid a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 30px;
+    line-height: 1;
 }
 
 /* Desktop layout improvements */
