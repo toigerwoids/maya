@@ -1226,30 +1226,50 @@ header::after {
 }
 
 .phase-items li {
-    margin-bottom: 12px;
-    padding-left: 25px;
     position: relative;
-    font-size: 15px;
-    color: #444;
+    padding-left: 30px;
+    margin-bottom: 12px;
+    text-align: left;
+    line-height: 1.5;
+    min-height: 24px;
+    display: block; /* Changed from flex to block */
 }
 
-/* Make sure all cards have consistent bullet points */
-.phase-items li::before {
+/* Style for uncompleted items - aligned with first line */
+.phase-items li:not(.completed)::before {
     content: '•';
     position: absolute;
     left: 0;
+    top: 0; /* Align with the first line */
     color: #ff84d9;
     font-size: 24px;
     line-height: 1;
-    margin-top: -3px; /* Adjust bullet vertical alignment */
 }
 
-/* Ensure consistent bullet point color and alignment */
-.phase-card li {
-    position: relative;
-    padding-left: 25px;
-    margin-bottom: 12px;
-    text-align: left;
+/* Style for completed items with checkmark */
+.phase-items li.completed::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0px; /* Align with the first line */
+    background: linear-gradient(90deg, #36eee0, #ff84d9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Fix for vertical alignment with text */
+.phase-items li::after {
+    content: "";
+    display: inline-block;
+}
+
+/* Clear any conflicting rules */
+.phase-card li::before {
+    content: none;
 }
         
         .phase-card:hover {
