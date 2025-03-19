@@ -815,26 +815,57 @@ header::after {
   position: relative; /* optional, to ensure the container respects overflow */
 }
       
+/* Improved button grid layout for hero section */
 .button-grid {
     display: grid;
-    grid-template-columns: 1fr; /* On mobile, buttons stack vertically */
-    gap: 12px; /* Reduced spacing between buttons for tighter grouping */
-    margin-top: 25px; /* Add some space after the paragraph text */
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 25px;
+    max-width: 320px; /* Base width for mobile */
 }
 
-/* Style for the Follow us on X button */
-.follow-x-button {
-    display: inline-block;
-    padding: 18px 45px;
-    background: #000000; /* X's brand color is black */
-    color: white;
-    font-weight: 600;
-    font-size: 20px;
+/* Base styling for all buttons */
+.button-grid a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 30px;
     border-radius: 50px;
+    font-weight: 600;
+    font-size: 18px;
     transition: transform 0.3s, box-shadow 0.3s;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    min-height: 56px; /* Ensure consistent height */
+    width: 100%;
+}
+
+/* Buy button styling - Pink/Teal gradient */
+.buy-button {
+    background: linear-gradient(90deg, #ff84d9, #36eee0);
+    color: white;
+}
+
+.buy-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 132, 217, 0.4);
+}
+
+/* Join Our Community button styling - Teal/Blue gradient */
+.cta-button {
+    background: linear-gradient(90deg, #36eee0, #43c1ff);
+    color: white;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(54, 238, 224, 0.4);
+}
+
+/* Follow X button styling - Black */
+.follow-x-button {
+    background: #000000;
+    color: white;
 }
 
 .follow-x-button:hover {
@@ -842,25 +873,46 @@ header::after {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
-.follow-x-button i {
-    margin-right: 8px;
+/* Icons in buttons */
+.button-grid a i {
+    margin-right: 10px;
+    font-size: 20px; /* Slightly larger icons */
 }
 
+/* Desktop layout improvements */
 @media (min-width: 768px) {
     .button-grid {
-        grid-template-columns: repeat(3, 1fr); /* On desktop, buttons appear in a row */
+        max-width: 100%;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px; /* Slightly more spacing between buttons on desktop */
+    }
+    
+    /* Ensure consistent width & ensure buttons don't stretch too wide */
+    .button-grid a {
+        min-width: 180px;
+        max-width: 220px;
+        margin: 0 auto; /* Center the buttons in their grid cells */
+        width: 100%;
+        font-size: 17px; /* Slightly smaller font for better fit */
+        padding: 14px 20px;
+    }
+    
+    /* Adjust icon size for desktop */
+    .button-grid a i {
+        font-size: 18px;
     }
 }
 
-/* UPDATED: Make all buttons consistent in mobile view */
+/* Responsive adjustments for mobile */
 @media (max-width: 576px) {
-    .cta-button, 
-    .follow-x-button,
-    .buy-button {
+    .button-grid {
         width: 100%;
-        text-align: center;
-        padding: 14px 30px;
-        font-size: 18px;
+        max-width: 100%;
+    }
+    
+    .button-grid a {
+        width: 100%;
+        padding: 16px 20px;
     }
 }
     
