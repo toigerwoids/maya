@@ -814,6 +814,47 @@ header::after {
   overflow: hidden;
   position: relative; /* optional, to ensure the container respects overflow */
 }
+      /* CSS for the button container to stack buttons properly */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start; /* Align with left-aligned hero text */
+}
+
+/* Style for the Follow us on X button */
+.follow-x-button {
+    display: inline-block;
+    padding: 18px 45px;
+    background: #000000; /* X's brand color is black */
+    color: white;
+    font-weight: 600;
+    font-size: 20px;
+    border-radius: 50px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.follow-x-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.follow-x-button i {
+    margin-right: 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .follow-x-button {
+        width: 100%;
+        text-align: center;
+        padding: 14px 30px;
+        font-size: 18px;
+    }
+}
     
     .embed-container:hover {
         transform: translateY(-5px);
@@ -1815,12 +1856,17 @@ header::after {
     </ul>
 </div>
     
-    <section class="hero">
-        <div class="hero-content">
-            <h1>$MAYA <span class="highlight">ON SOLANA</span></h1>
-            <p>Welcome to the official community coin for Maya!</p>
+<section class="hero">
+    <div class="hero-content">
+        <h1>$MAYA <span class="highlight">ON SOLANA</span></h1>
+        <p>Welcome to the official community coin for Maya!</p>
+        <div class="button-container">
             <a href="https://t.me/MayaTheBear" class="cta-button">JOIN OUR TELEGRAM COMMUNITY</a>
+            <a href="https://x.com/MayaCoin_" class="follow-x-button" target="_blank">
+                <i class="fa-brands fa-x-twitter"></i> FOLLOW US ON X
+            </a>
         </div>
+    </div>
         
         <div class="hero-image">
             <img src="https://i.ibb.co/5gZ3RNqY/Round-image.png" alt="Maya the Dog">
