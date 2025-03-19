@@ -814,12 +814,12 @@ header::after {
   overflow: hidden;
   position: relative; /* optional, to ensure the container respects overflow */
 }
-      /* CSS for the button container to stack buttons properly */
-.button-container {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    align-items: flex-start; /* Align with left-aligned hero text */
+      
+.button-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* On mobile, buttons stack vertically */
+    gap: 12px; /* Reduced spacing between buttons for tighter grouping */
+    margin-top: 25px; /* Add some space after the paragraph text */
 }
 
 /* Style for the Follow us on X button */
@@ -846,9 +846,17 @@ header::after {
     margin-right: 8px;
 }
 
-/* Responsive adjustments */
+@media (min-width: 768px) {
+    .button-grid {
+        grid-template-columns: repeat(3, 1fr); /* On desktop, buttons appear in a row */
+    }
+}
+
+/* UPDATED: Make all buttons consistent in mobile view */
 @media (max-width: 576px) {
-    .follow-x-button {
+    .cta-button, 
+    .follow-x-button,
+    .buy-button {
         width: 100%;
         text-align: center;
         padding: 14px 30px;
@@ -1860,7 +1868,10 @@ header::after {
     <div class="hero-content">
         <h1>$MAYA <span class="highlight">ON SOLANA</span></h1>
         <p>Welcome to the official community coin for Maya!</p>
-<div class="button-container">
+<div class="button-grid">
+    <a href="https://pump.fun/coin/GLnZvGXJZ9RFvFZPSjjW5jdvi5h9xE2wvFdcw39Gpump" class="buy-button" target="_blank">
+        <i class="fas fa-shopping-cart"></i> BUY $MAYA
+    </a>
     <a href="https://t.me/MayaTheBear" class="cta-button">
         <i class="fab fa-telegram"></i> JOIN OUR COMMUNITY
     </a>
